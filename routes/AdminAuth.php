@@ -21,3 +21,12 @@ Route::middleware('auth')->group(function () {
     Route::post('admin/logout', [AdminAuthenticatedSessionController::class, 'destroy'])
                 ->name('admin.logout');
 });
+
+if (Auth::guard('admin')->check()) {
+    return redirect('/admin/dashboard');
+}
+Route::middleware(['auth:admin'])->group(function () {
+    // Your admin routes here
+});
+
+

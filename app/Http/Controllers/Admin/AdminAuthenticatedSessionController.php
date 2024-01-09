@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Admin\AdminAuthenticatedSessionController;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\Auth\AdminLoginRequest;
@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use Inertia\Response;
 
-class AuthenticatedSessionController extends Controller
+class AdminAuthenticatedSessionController extends Controller
 {
     /**
      * Display the login view.
@@ -40,7 +40,7 @@ class AuthenticatedSessionController extends Controller
     /**
      * Destroy an authenticated session.
      */
-    public function destroy(Request $request): RedirectResponse
+    public function destroySession(Request $request): RedirectResponse
     {
         Auth::guard('admin')->logout();
 
